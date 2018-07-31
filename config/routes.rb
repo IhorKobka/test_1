@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :categories
+      resources :categories, except: :show
+      resources :products, only: [:index, :create]
+      resources :images, only: :create
     end
   end
 end
